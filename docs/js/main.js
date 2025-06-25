@@ -4,6 +4,8 @@ $(document).ready(function () {
   const usertoken = localStorage.getItem('usertoken');
   if (!usertoken) {
     window.location.href = 'index.html';
+  } else {
+    $("body").show();
   }
 
   // if logout button is clicked, kill the usertoken and redirect
