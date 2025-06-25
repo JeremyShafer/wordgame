@@ -3,7 +3,6 @@ $(document).ready(function () {
     
     // Clear previous messages //
     $('#message-login').html('');
-    console.log*('Login button clicked');
     const username = $('#username').val().trim();
     const password = $('#password').val().trim();
 
