@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('#button-loginForm').click(function (e) {
+  $('#button-login').click(function (e) {
     
     console.log('Login button clicked');
     // Clear previous messages //
