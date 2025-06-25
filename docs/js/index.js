@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $('#button-loginForm').click(function (e) {
     
+    console.log('Login button clicked');
     // Clear previous messages //
     $('#message-login').html('');
     const username = $('#username').val().trim();
