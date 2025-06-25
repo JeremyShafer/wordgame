@@ -1,8 +1,7 @@
 $(document).ready(function () {
-  $('#button-loginForm').on('click', function (e) {
-    e.preventDefault();
-
-    // Clear previous messages
+  $('#button-loginForm').click(function (e) {
+    
+    // Clear previous messages //
     $('#message').html('');
 
     const username = $('#username').val().trim();
