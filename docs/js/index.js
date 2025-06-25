@@ -29,6 +29,7 @@ $(document).ready(function () {
           return;
         }
         response = response[0]; // Assuming the response is an array with one object
+        console.log(response);
         // Assuming the response contains a token property
         if (response && response.usertoken) {
           localStorage.setItem('usertoken', response.usertoken);
@@ -40,7 +41,7 @@ $(document).ready(function () {
         if (xhr.responseJSON && xhr.responseJSON.message) {
           msg += xhr.responseJSON.message;
         }
-        $('#message-login').addClass("alert alert-danger")
+        $('#message-login').addClass("alert alert-danger");
         $('#message-login').html(`${msg}`);
       }
     });
