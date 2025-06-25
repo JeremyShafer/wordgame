@@ -4,11 +4,14 @@ $(document).ready(function () {
     console.log('Login button clicked');
     // Clear previous messages //
     $('#message-login').html('');
+    $('#message-login').removeClass();
+
     const username = $('#username').val().trim();
     const password = $('#password').val().trim();
 
     if (!username || !password) {
-      $('#message-login').html('<span class="text-danger">Please enter both username and password.</span>');
+      $('#message-login').addClass("alert alert-danger")
+      $('#message-login').html('Please enter both username and password.');
       return;
     }
 
@@ -20,7 +23,8 @@ $(document).ready(function () {
       success: function (response) {
         // a string is 
         if (typeof response === 'string') {
-          $('#message-login').html('<span class="text-danger">Login failed. Please check your credentials and try again.</span>');
+          $('#message-login').addClass("alert alert-danger")
+          $('#message-login').html('Login failed. Please check your credentials and try again.');
           return;
         }
         response = response[0]; // Assuming the response is an array with one object
@@ -35,7 +39,8 @@ $(document).ready(function () {
         if (xhr.responseJSON && xhr.responseJSON.message) {
           msg += xhr.responseJSON.message;
         }
-        $('#message-login').html(`<span class="text-danger">${msg}</span>`);
+        $('#message-login').addClass("alert alert-danger")
+        $('#message-login').html(`${msg}`);
       }
     });
   });
