@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('#loginForm').on('submit', function (e) {
+  $('#button-loginForm').on('click', function (e) {
     e.preventDefault();
 
     // Clear previous messages
