@@ -15,11 +15,12 @@ $(document).ready(function () {
       return;
     }
 
+    let theserializeddata = $("#loginForm").serialize();
+    console.log(theserializeddata);
     $.ajax({
       url: 'https://misdemo.temple.edu/auth',
       type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify({ username, password }),
+      data: theserializeddata,
       success: function (response) {
         // a string is 
         if (typeof response === 'string') {
