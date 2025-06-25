@@ -30,11 +30,10 @@ $(document).ready(function () {
           $('#message-login').html('Login failed. Please check your credentials and try again.');
           return;
         }
-        response = response[0]; // Assuming the response is an array with one object
         console.log(response);
         // Assuming the response contains a token property
-        if (response && response.usertoken) {
-          localStorage.setItem('usertoken', response.usertoken);
+        if (response && response.user_id) {
+          localStorage.setItem('usertoken', response.user_id);
           window.location.href = 'main.html';
         } 
       },
