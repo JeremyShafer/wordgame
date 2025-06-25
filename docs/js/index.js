@@ -18,16 +18,20 @@ $(document).ready(function () {
       contentType: 'application/json',
       data: JSON.stringify({ username, password }),
       success: function (response) {
+        // a string is 
+        if (typeof response === 'string') {
+          $('#message-login').html('<span class="text-danger">Login failed: Invalid response from server.</span>');
+          return;
+        }
+        response = response[0]; // Assuming the response is an array with one object
         // Assuming the response contains a token property
         if (response && response.usertoken) {
           localStorage.setItem('usertoken', response.usertoken);
           window.location.href = 'main.html';
-        } else {
-          $('#message-login').html('<span class="text-danger">Login failed: Invalid response from server.</span>');
-        }
+        } 
       },
       error: function (xhr) {
-        let msg = 'Login failed. Please check your credentials and try again.';
+        let msg = 'Unepected error. Login failed. Please check your credentials and try again.';
         if (xhr.responseJSON && xhr.responseJSON.message) {
           msg = xhr.responseJSON.message;
         }
