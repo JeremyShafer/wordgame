@@ -23,6 +23,7 @@ $(document).ready(function () {
       data: theserializeddata,
       success: function (response) {
         // a string is 
+        console.log('Login successful');
         console.log(response);
         if (typeof response === 'string') {
           $('#message-login').addClass("alert alert-danger")
