@@ -20,7 +20,7 @@ $(document).ready(function () {
       success: function (response) {
         // a string is 
         if (typeof response === 'string') {
-          $('#message-login').html('<span class="text-danger">Login failed: Invalid response from server.</span>');
+          $('#message-login').html('<span class="text-danger">Login failed. Please check your credentials and try again.</span>');
           return;
         }
         response = response[0]; // Assuming the response is an array with one object
@@ -31,9 +31,9 @@ $(document).ready(function () {
         } 
       },
       error: function (xhr) {
-        let msg = 'Unepected error. Login failed. Please check your credentials and try again.';
+        let msg = 'Unepected error. Invalid response from server. ';
         if (xhr.responseJSON && xhr.responseJSON.message) {
-          msg = xhr.responseJSON.message;
+          msg += xhr.responseJSON.message;
         }
         $('#message-login').html(`<span class="text-danger">${msg}</span>`);
       }
